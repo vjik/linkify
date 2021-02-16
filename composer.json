@@ -1,18 +1,13 @@
 {
-    "name": "vjik/_____",
+    "name": "vjik/tmp-linify",
     "type": "library",
-    "description": "_____",
-    "keywords": [
-        "_____"
-    ],
+    "description": "",
     "license": "BSD-3-Clause",
-    "support": {
-        "issues": "https://github.com/vjik/_____/issues?state=open",
-        "source": "https://github.com/vjik/_____"
-    },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
-        "php": "^7.4|^8.0"
+        "php": "^7.4|^8.0",
+        "yiisoft/html": "^3.0@dev"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5",
@@ -21,12 +16,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Vjik\\_____\\": "src"
+            "Vjik\\Linkify\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Vjik\\_____\\Tests\\": "tests"
+            "Vjik\\Linkify\\Tests\\": "tests"
         }
     },
     "scripts": {
