@@ -26,8 +26,13 @@ $linkify = new \Vjik\Linkify\Linkify(
 
 $text = 'Contacts: https://example.com, info@example.com.';
 
-// Contacts: <a href="https://example.com">example.com</a>, <a href="mailto:info@example.com">info@example.com</a>.
 $result = $linkify->process($text);
+```
+
+`$result` will be contain:
+
+```html
+Contacts: <a href="https://example.com">example.com</a>, <a href="mailto:info@example.com">info@example.com</a>.
 ```
 
 ## Testing
