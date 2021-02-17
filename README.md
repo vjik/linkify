@@ -29,7 +29,7 @@ $text = 'Contacts: https://example.com, info@example.com.';
 $result = $linkify->process($text);
 ```
 
-`$result` will be contain:
+`$result` will be:
 
 ```html
 Contacts: <a href="https://example.com">example.com</a>, <a href="mailto:info@example.com">info@example.com</a>.
