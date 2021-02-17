@@ -1,19 +1,19 @@
-# _____
+# Linkify
 
-[![Latest Stable Version](https://poser.pugx.org/vjik/_____/v/stable.png)](https://packagist.org/packages/vjik/_____)
-[![Total Downloads](https://poser.pugx.org/vjik/_____/downloads.png)](https://packagist.org/packages/vjik/_____)
-[![Build status](https://github.com/vjik/_____/workflows/build/badge.svg)](https://github.com/vjik/_____/actions?query=workflow%3Abuild)
-[![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Fvjik%2F_____%2Fmaster)](https://dashboard.stryker-mutator.io/reports/github.com/vjik/_____/master)
-[![static analysis](https://github.com/vjik/_____/workflows/static%20analysis/badge.svg)](https://github.com/vjik/_____/actions?query=workflow%3A%22static+analysis%22)
+[![Latest Stable Version](https://poser.pugx.org/vjik/linkify/v/stable.png)](https://packagist.org/packages/vjik/linkify)
+[![Total Downloads](https://poser.pugx.org/vjik/linkify/downloads.png)](https://packagist.org/packages/vjik/linkify)
+[![Build status](https://github.com/vjik/linkify/workflows/build/badge.svg)](https://github.com/vjik/linkify/actions?query=workflow%3Abuild)
+[![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Fvjik%2Flinkify%2Fmaster)](https://dashboard.stryker-mutator.io/reports/github.com/vjik/linkify/master)
+[![static analysis](https://github.com/vjik/linkify/workflows/static%20analysis/badge.svg)](https://github.com/vjik/linkify/actions?query=workflow%3A%22static+analysis%22)
 
-The package ...
+The package provide `Linkify` class that matches things like email addresses, web URLs, etc. in the text and makes them clickable links.
 
 ## Installation
 
 The package could be installed with [composer](https://getcomposer.org/download/):
 
 ```shell
-composer require vjik/_____ --prefer-dist
+composer require vjik/linkify --prefer-dist
 ```
 
 ## General usage
@@ -47,5 +47,5 @@ The code is statically analyzed with [Psalm](https://psalm.dev/). To run static 
 
 ## License
 
-The _____ is free software. It is released under the terms of the BSD License.
+The Linkify is free software. It is released under the terms of the BSD License.
 Please see [`LICENSE`](./LICENSE.md) for more information.

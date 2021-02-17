@@ -15,7 +15,7 @@
     </php>
 
     <testsuites>
-        <testsuite name="_____ tests">
+        <testsuite name="Linkify tests">
             <directory>./tests</directory>
         </testsuite>
     </testsuites>
