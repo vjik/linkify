@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace Vjik\Linkify\Tests;
 
 use PHPUnit\Framework\TestCase;
-use Vjik\Linkify\HttpLinkifyProtocol;
+use Vjik\Linkify\HttpPattern;
 use Vjik\Linkify\Linkify;
 
-final class HttpLinkifyProtocolTest extends TestCase
+final class HttpPatternTest extends TestCase
 {
     public function dataBase(): array
     {
@@ -41,7 +41,7 @@ final class HttpLinkifyProtocolTest extends TestCase
     {
         self::assertSame(
             $expected,
-            (new Linkify(new HttpLinkifyProtocol()))->linkify($text)
+            (new Linkify(new HttpPattern()))->process($text)
         );
     }
 }

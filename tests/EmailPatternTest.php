@@ -6,9 +6,9 @@ namespace Vjik\Linkify\Tests;
 
 use PHPUnit\Framework\TestCase;
 use Vjik\Linkify\Linkify;
-use Vjik\Linkify\MailtoLinkifyProtocol;
+use Vjik\Linkify\EmailPattern;
 
-final class MailtoLinkifyProtocolTest extends TestCase
+final class EmailPatternTest extends TestCase
 {
     public function dataBase(): array
     {
@@ -37,7 +37,7 @@ final class MailtoLinkifyProtocolTest extends TestCase
     {
         self::assertSame(
             $expected,
-            (new Linkify(new MailtoLinkifyProtocol()))->linkify($text)
+            (new Linkify(new EmailPattern()))->process($text)
         );
     }
 }

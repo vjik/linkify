@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Vjik\Linkify;
 
-interface LinkifyProtocolInterface
+interface PatternInterface
 {
     public function getRegularExpression(): string;
 

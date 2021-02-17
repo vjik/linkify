@@ -6,7 +6,7 @@ namespace Vjik\Linkify;
 
 use Yiisoft\Html\Html;
 
-final class HttpLinkifyProtocol implements LinkifyProtocolInterface
+final class HttpPattern implements PatternInterface
 {
     public function getRegularExpression(): string
     {
@@ -15,6 +15,13 @@ final class HttpLinkifyProtocol implements LinkifyProtocolInterface
 
     public function callback(array $match): string
     {
+        /**
+         * @psalm-var array{
+         *      0:string,
+         *      1:string,
+         *      2:string,
+         * }&array<int,string> $match
+         */
         return Html::a($match[2], $match[0]);
     }
 }

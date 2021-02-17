@@ -18,6 +18,18 @@ composer require vjik/linkify --prefer-dist
 
 ## General usage
 
+```php
+$linkify = new \Vjik\Linkify\Linkify(
+    new \Vjik\Linkify\HttpPattern(),
+    new \Vjik\Linkify\EmailPattern(),
+); 
+
+$text = 'Contacts: https://example.com, info@example.com.';
+
+// Contacts: <a href="https://example.com">example.com</a>, <a href="mailto:info@example.com">info@example.com</a>.
+$result = $linkify->process($text);
+```
+
 ## Testing
 
 ### Unit testing

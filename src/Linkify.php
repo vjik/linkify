@@ -4,28 +4,41 @@ declare(strict_types=1);
 
 namespace Vjik\Linkify;
 
+use InvalidArgumentException;
+
+use function count;
+use function is_string;
+
 final class Linkify
 {
-    private array $protocols;
-    private string $plugTemplate = '###_LINKIFY_TAG_%ID%_###';
+    private const VAR_ID = '%ID%';
 
-    public function __construct(LinkifyProtocolInterface ...$protocols)
+    /**
+     * @var PatternInterface[]
+     */
+    private array $patterns;
+    private string $plugTemplate = '###_LINKIFY_TAG_' . self::VAR_ID . '_###';
+
+    public function __construct(PatternInterface ...$patterns)
     {
-        $this->protocols = $protocols;
+        $this->patterns = $patterns;
     }
 
-    public function linkify(string $text): string
+    public function process(string $text): string
     {
+        /** @psalm-var array<string, string> $links */
         $links = [];
-        foreach ($this->protocols as $protocol) {
-
-
+        foreach ($this->patterns as $pattern) {
             /** @var string|null $result */
             $result = preg_replace_callback(
-                $protocol->getRegularExpression(),
-                function (array $match) use ($protocol, &$links) {
-                    $plug = str_replace($this->plugTemplate, '%ID%', count($links));
-                    $links[$plug] = $protocol->callback($match);
+                $pattern->getRegularExpression(),
+                function (array $match) use ($pattern, &$links) {
+                    /**
+                     * @psalm-var PatternInterface $pattern
+                     * @psalm-var array<string, string> $links
+                     */
+                    $plug = str_replace(self::VAR_ID, (string)count($links), $this->plugTemplate);
+                    $links[$plug] = $pattern->callback($match);
                     return $plug;
                 },
                 $text
@@ -35,11 +48,17 @@ final class Linkify
             }
         }
 
+        /** @psalm-var array<string, string> $links */
+
         return strtr($text, $links);
     }
 
     public function withPlugTemplate(string $plug): self
     {
+        if (strpos($plug, self::VAR_ID) === false) {
+            throw new InvalidArgumentException('Plug should contain ' . self::VAR_ID);
+        }
+
         $new = clone $this;
         $new->plugTemplate = $plug;
         return $new;
