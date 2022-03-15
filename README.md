@@ -8,6 +8,10 @@
 
 The package provide `Linkify` class that matches things like email addresses, web URLs, etc. in the text and makes them clickable links.
 
+## Requirements
+
+- PHP 7.4 or higher.
+
 ## Installation
 
 The package could be installed with [composer](https://getcomposer.org/download/):
