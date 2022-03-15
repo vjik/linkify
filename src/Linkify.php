@@ -29,15 +29,11 @@ final class Linkify
         /** @psalm-var array<string, string> $links */
         $links = [];
         foreach ($this->patterns as $pattern) {
-            /** @var string|null $result */
             $result = preg_replace_callback(
                 $pattern->getRegularExpression(),
-                function (array $match) use ($pattern, &$links) {
-                    /**
-                     * @psalm-var PatternInterface $pattern
-                     * @psalm-var array<string, string> $links
-                     */
-                    $plug = str_replace(self::VAR_ID, (string)count($links), $this->plugTemplate);
+                function (array $match) use ($pattern, &$links): string {
+                    /** @psalm-var array<string, string> $links */
+                    $plug = str_replace(self::VAR_ID, (string) count($links), $this->plugTemplate);
                     $links[$plug] = $pattern->callback($match);
                     return $plug;
                 },
@@ -56,7 +52,7 @@ final class Linkify
     public function withPlugTemplate(string $plug): self
     {
         if (strpos($plug, self::VAR_ID) === false) {
-            throw new InvalidArgumentException('Plug should contain ' . self::VAR_ID);
+            throw new InvalidArgumentException('Plug should contain ' . self::VAR_ID . '.');
         }
 
         $new = clone $this;

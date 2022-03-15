@@ -64,7 +64,7 @@ final class LinkifyTest extends TestCase
     public function testInvalidPlugTemplate(string $plug): void
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessageMatches('/^Plug should contain/');
+        $this->expectExceptionMessage('Plug should contain %ID%.');
         (new Linkify())->withPlugTemplate($plug);
     }
 

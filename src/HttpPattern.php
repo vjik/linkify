@@ -22,7 +22,7 @@ final class HttpPattern implements PatternInterface
          *      2:string,
          * }&array<int,string> $match
          */
-        return Html::a($match[2], $match[0]);
+        return (string) Html::a($match[2], $match[0]);
     }
 }
 

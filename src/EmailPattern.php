@@ -30,6 +30,6 @@ final class EmailPattern implements PatternInterface
          *      0:string,
          * }&array<int,string> $match
          */
-        return Html::mailto($match[0]);
+        return (string) Html::mailto($match[0]);
     }
 }
