@@ -52,7 +52,7 @@ final class Linkify
     public function withPlugTemplate(string $plug): self
     {
         if (strpos($plug, self::VAR_ID) === false) {
-            throw new InvalidArgumentException('Plug should contain ' . self::VAR_ID);
+            throw new InvalidArgumentException('Plug should contain ' . self::VAR_ID . '.');
         }
 
         $new = clone $this;
